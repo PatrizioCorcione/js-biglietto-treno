@@ -6,24 +6,30 @@ const prezzoKm = 0.21;
 
 let prezzoBigl = km * prezzoKm;
 
+document.getElementById("conto").innerHTML =
+     `
+     Il prezzo del tuo biglietto e : ${prezzoBigl.toFixed(2)} €
+     `;
+
 if(eta < 18){
      sconto = (prezzoBigl * 20) / 100;
      prezzoBigl = prezzoBigl - sconto;
-     document.getElementById("conto").innerHTML =
+     document.getElementById("conto-scontato").innerHTML =
      `
-     Il tuo conto con sconto del 20% e ${prezzoBigl.toFixed(2)} €
-     `
+     (Minorenne) Il prezzo scontato del 20% e ${prezzoBigl.toFixed(2)} € 
+     `;
    } else if(eta > 65){
      sconto = (prezzoBigl * 40) / 100;
      prezzoBigl = prezzoBigl - sconto;
-     document.getElementById("conto").innerHTML =
+     document.getElementById("conto-scontato").innerHTML =
      `
-     Il tuo conto con sconto del 40% e ${prezzoBigl.toFixed(2)} €
-     `
+    (Over 65) Il prezzo scontato del 40% e ${prezzoBigl.toFixed(2)} € 
+     `;
    }else{
-     document.getElementById("conto").innerHTML =
+     document.getElementById("conto-scontato").innerHTML =
      `
-     Il tuo conto senza sconti e ${prezzoBigl.toFixed(2)} €
-     `
+     Il prezzo senza sconti e : ${prezzoBigl.toFixed(2)} €
+     `;
    }
+   
 
